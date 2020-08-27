@@ -1,0 +1,15 @@
+
+- web AND test
+    docker build -t gianlucamori/frontend-docker:latest -f Dockerfile.dev .
+
+    docker run --name frontend-docker-dev -d -it -p 3000:3000 -v /app/node_modules -v $(pwd):/app gianlucamori/frontend-docker:latest
+
+    docker run --name frontend-docker-test -it -p 3000:3000 -v /app/node_modules -v $(pwd):/app gianlucamori/frontend-docker:latest npm run test
+
+    -docker compose (rebuilding image) :    docker-compose up --build
+
+-production
+    docker build -t gianlucamori/frontend-docker-prod:latest -f Dockerfile .
+
+    docker run --name frontend-docker-prod -it -p 80:80 gianlucamori/frontend-docker-prod:latest
+

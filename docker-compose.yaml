@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+  web:
+    container_name: frontend-docker-dev
+    stdin_open: true
+    image: gianlucamori/frontend-docker:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - .:/app
+  test:
+    container_name: frontend-docker-test
+    stdin_open: true
+    image: gianlucamori/frontend-docker:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["npm", "run", test]
