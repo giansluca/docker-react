@@ -13,3 +13,6 @@
 
     docker run --name frontend-docker-prod -it -p 80:80 gianlucamori/frontend-docker-prod:latest
 
+aws (docker-react-travis-ci) :
+    access key id: AKIAQEMQH4TKCRVYTL6K
+    secret: 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
